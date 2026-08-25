@@ -19,7 +19,7 @@ http://dil-connector.dil-connector.svc.cluster.local:8282
 Catalogs advertise the public connector route with `CONNECTOR_PUBLIC_BASE_URL`:
 
 ```text
-https://connector.dil.collab-cloud.eu
+https://dil-connector.material.dil.collab-cloud.eu
 ```
 
 Keep `CONNECTOR_BASE_URL` internal for GUI-to-connector API calls, and set

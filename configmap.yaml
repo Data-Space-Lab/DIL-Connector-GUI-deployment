@@ -5,8 +5,9 @@ metadata:
   namespace: dil-connector-gui
 data:
   CONNECTOR_BASE_URL: http://dil-connector.dil-connector.svc.cluster.local:8282
-  CONNECTOR_PUBLIC_BASE_URL: https://connector.dil.collab-cloud.eu
+  CONNECTOR_PUBLIC_BASE_URL: https://dil-connector.material.dil.collab-cloud.eu
   CONNECTOR_DSP_BASE_PATH: /api/dsp
   CONNECTOR_AUTHORIZATION: '{"region":"any","audience":"any","clientId":"any"}'
   DJANGO_ALLOWED_HOSTS: "*"
+  DJANGO_CSRF_TRUSTED_ORIGINS: https://dil-connector-gui.material.dil.collab-cloud.eu
   DJANGO_DEBUG: "false"
