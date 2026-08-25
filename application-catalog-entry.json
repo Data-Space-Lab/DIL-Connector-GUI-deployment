@@ -1,0 +1,21 @@
+{
+  "name": "dil-connector-gui",
+  "display_name": "DIL Connector GUI",
+  "description": "Web UI for managing DIL Connector catalogs.",
+  "repo_url": "https://github.com/Data-Space-Lab/DIL-Connector-GUI-deployment.git",
+  "target_revision": "HEAD",
+  "path": ".",
+  "namespace": "dil-connector-gui",
+  "enabled": true,
+  "routes": [
+    {
+      "route_name": "dil-connector-gui",
+      "service_name": "dil-connector-gui",
+      "service_namespace": "dil-connector-gui",
+      "service_port": 8000,
+      "hostname": "dil-connector-gui.{tenant_host}",
+      "path_prefix": "/",
+      "no_url_rewrite": true
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dil-connector-gui-config
+  namespace: dil-connector-gui
+data:
+  CONNECTOR_BASE_URL: http://dil-connector.dil-connector.svc.cluster.local:8282
+  CONNECTOR_DSP_BASE_PATH: /api/dsp
+  CONNECTOR_AUTHORIZATION: '{"region":"any","audience":"any","clientId":"any"}'
+  DJANGO_ALLOWED_HOSTS: "*"
+  DJANGO_DEBUG: "false"
