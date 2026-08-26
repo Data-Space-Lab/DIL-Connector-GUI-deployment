@@ -7,6 +7,7 @@
   "path": ".",
   "namespace": "dil-connector-gui",
   "enabled": true,
+  "helm_values": "connector:\n  internalBaseUrl: http://dil-connector.dil-connector.svc.cluster.local:8282\n  managementBaseUrl: http://dil-connector-management.dil-connector.svc.cluster.local:8283\n  publicHost: dil-connector.{tenant_host}\n  publicBaseUrl: https://dil-connector.{tenant_host}\ndataplane:\n  internalBaseUrl: http://dil-connector-dataplane.dil-connector.svc.cluster.local:8284\ncatalog:\n  participantId: did:web:dil-connector.{tenant_host}\n  publisher: {tenant}\n  homepage: https://dil-connector-gui.{tenant_host}\ndjango:\n  csrfTrustedOrigins: https://dil-connector-gui.{tenant_host}\n",
   "routes": [
     {
       "route_name": "dil-connector-gui",

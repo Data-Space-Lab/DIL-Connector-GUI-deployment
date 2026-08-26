@@ -5,8 +5,20 @@ metadata:
   namespace: dil-connector-gui
 data:
   CONNECTOR_BASE_URL: http://dil-connector.dil-connector.svc.cluster.local:8282
+  CONNECTOR_MGMT_BASE_URL: http://dil-connector-management.dil-connector.svc.cluster.local:8283
   CONNECTOR_PUBLIC_BASE_URL: https://dil-connector.material.dil.collab-cloud.eu
   CONNECTOR_DSP_BASE_PATH: /api/dsp
+  DATAPLANE_BASE_URL: http://dil-connector-dataplane.dil-connector.svc.cluster.local:8284
+  CATALOG_PARTICIPANT_ID: TCK_PARTICIPANT
+  CATALOG_SERVICE_ID: dataservice:main
+  CATALOG_DATA_SERVICE_TYPE: dspace:connector
+  CATALOG_PUBLISHER: ""
+  CATALOG_HOMEPAGE: ""
+  CATALOG_SUPPORTED_LICENSES: |-
+    Creative Commons Attribution 4.0 | https://creativecommons.org/licenses/by/4.0/
+    Creative Commons Zero 1.0 | https://creativecommons.org/publicdomain/zero/1.0/
+    Open Data Commons Open Database License 1.0 | https://opendatacommons.org/licenses/odbl/1-0/
+  CATALOG_DEFAULT_LICENSE: https://creativecommons.org/licenses/by/4.0/
   CONNECTOR_AUTHORIZATION: '{"region":"any","audience":"any","clientId":"any"}'
   DJANGO_ALLOWED_HOSTS: "*"
   DJANGO_CSRF_TRUSTED_ORIGINS: https://dil-connector-gui.material.dil.collab-cloud.eu
