@@ -1,0 +1,56 @@
+namespace: dil-connector-gui
+
+image:
+  repository: ghcr.io/data-space-lab/dil-connector-gui
+  tag: latest
+  pullPolicy: Always
+
+imagePullSecrets:
+  - ghcr-pull-secret
+
+replicas: 1
+
+connector:
+  internalBaseUrl: http://dil-connector.dil-connector.svc.cluster.local:8282
+  managementBaseUrl: http://dil-connector-management.dil-connector.svc.cluster.local:8283
+  publicHost: dil-connector.example.org
+  publicBaseUrl: https://dil-connector.example.org
+  dspBasePath: /api/dsp
+  authorization: '{"region":"any","audience":"any","clientId":"any"}'
+
+dataplane:
+  internalBaseUrl: http://dil-connector-dataplane.dil-connector.svc.cluster.local:8284
+
+catalog:
+  participantId: ""
+  serviceId: dataservice:main
+  dataServiceType: dspace:connector
+  publisher: ""
+  homepage: ""
+  supportedLicenses:
+    - label: Creative Commons Attribution 4.0
+      uri: https://creativecommons.org/licenses/by/4.0/
+    - label: Creative Commons Zero 1.0
+      uri: https://creativecommons.org/publicdomain/zero/1.0/
+    - label: Open Data Commons Open Database License 1.0
+      uri: https://opendatacommons.org/licenses/odbl/1-0/
+  defaultLicense: https://creativecommons.org/licenses/by/4.0/
+
+django:
+  allowedHosts: "*"
+  csrfTrustedOrigins: ""
+  debug: "false"
+  secretKey: change-me
+
+service:
+  port: 8000
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+    ephemeral-storage: 256Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+    ephemeral-storage: 1Gi

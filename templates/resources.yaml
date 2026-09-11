@@ -1,0 +1,114 @@
+{{- $connectorPublicBaseUrl := trimSuffix "/" .Values.connector.publicBaseUrl -}}
+{{- $participantDid := default (printf "did:web:%s" .Values.connector.publicHost) .Values.catalog.participantId -}}
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ .Values.namespace | quote }}
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: dil-connector-gui
+  namespace: {{ .Values.namespace | quote }}
+{{- if .Values.imagePullSecrets }}
+imagePullSecrets:
+{{- range .Values.imagePullSecrets }}
+  - name: {{ . | quote }}
+{{- end }}
+{{- end }}
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: dil-connector-gui-secret
+  namespace: {{ .Values.namespace | quote }}
+type: Opaque
+stringData:
+  DJANGO_SECRET_KEY: {{ .Values.django.secretKey | quote }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dil-connector-gui-config
+  namespace: {{ .Values.namespace | quote }}
+data:
+  CONNECTOR_BASE_URL: {{ .Values.connector.internalBaseUrl | quote }}
+  CONNECTOR_MGMT_BASE_URL: {{ .Values.connector.managementBaseUrl | quote }}
+  CONNECTOR_PUBLIC_BASE_URL: {{ $connectorPublicBaseUrl | quote }}
+  CONNECTOR_DSP_BASE_PATH: {{ .Values.connector.dspBasePath | quote }}
+  DATAPLANE_BASE_URL: {{ .Values.dataplane.internalBaseUrl | quote }}
+  CATALOG_PARTICIPANT_ID: {{ $participantDid | quote }}
+  CATALOG_SERVICE_ID: {{ .Values.catalog.serviceId | quote }}
+  CATALOG_DATA_SERVICE_TYPE: {{ .Values.catalog.dataServiceType | quote }}
+  CATALOG_PUBLISHER: {{ .Values.catalog.publisher | quote }}
+  CATALOG_HOMEPAGE: {{ .Values.catalog.homepage | quote }}
+  CATALOG_SUPPORTED_LICENSES: |-
+{{- range .Values.catalog.supportedLicenses }}
+    {{ .label }} | {{ .uri }}
+{{- end }}
+  CATALOG_DEFAULT_LICENSE: {{ .Values.catalog.defaultLicense | quote }}
+  CONNECTOR_AUTHORIZATION: {{ .Values.connector.authorization | quote }}
+  DJANGO_ALLOWED_HOSTS: {{ .Values.django.allowedHosts | quote }}
+  DJANGO_CSRF_TRUSTED_ORIGINS: {{ default "" .Values.django.csrfTrustedOrigins | quote }}
+  DJANGO_DEBUG: {{ .Values.django.debug | quote }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dil-connector-gui
+  namespace: {{ .Values.namespace | quote }}
+spec:
+  replicas: {{ .Values.replicas }}
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: dil-connector-gui
+  template:
+    metadata:
+      labels:
+        app: dil-connector-gui
+    spec:
+      serviceAccountName: dil-connector-gui
+      containers:
+        - name: dil-connector-gui
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.port }}
+          envFrom:
+            - configMapRef:
+                name: dil-connector-gui-config
+            - secretRef:
+                name: dil-connector-gui-secret
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 20
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dil-connector-gui
+  namespace: {{ .Values.namespace | quote }}
+spec:
+  selector:
+    app: dil-connector-gui
+  ports:
+    - name: http
+      port: {{ .Values.service.port }}
+      targetPort: http
