@@ -2,7 +2,7 @@ namespace: dil-connector-gui
 
 image:
   repository: ghcr.io/data-space-lab/dil-connector-gui
-  tag: latest
+  tag: dynamic-schema-verify-20260917-1
   pullPolicy: Always
 
 imagePullSecrets:
