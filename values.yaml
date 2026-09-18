@@ -2,7 +2,7 @@ namespace: dil-connector-gui
 
 image:
   repository: ghcr.io/data-space-lab/dil-connector-gui
-  tag: offer-form-20260918-1
+  tag: dataset-no-offer-20260918-1
   pullPolicy: Always
 
 imagePullSecrets:
