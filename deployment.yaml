@@ -21,7 +21,7 @@ spec:
       serviceAccountName: dil-connector-gui
       containers:
         - name: dil-connector-gui
-          image: ghcr.io/data-space-lab/dil-connector-gui:remote-offer-cleanup-20260918-2
+          image: ghcr.io/data-space-lab/dil-connector-gui:minio-sharing-20260918-1
           imagePullPolicy: Always
           ports:
             - name: http
