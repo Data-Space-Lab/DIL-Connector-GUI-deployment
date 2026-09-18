@@ -2,7 +2,7 @@ namespace: dil-connector-gui
 
 image:
   repository: ghcr.io/data-space-lab/dil-connector-gui
-  tag: minio-picker-dataset-20260918-1
+  tag: offer-create-button-20260918-1
   pullPolicy: Always
 
 imagePullSecrets:
