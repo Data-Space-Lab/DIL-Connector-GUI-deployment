@@ -1,5 +1,5 @@
 {{- $connectorPublicBaseUrl := trimSuffix "/" .Values.connector.publicBaseUrl -}}
-{{- $participantDid := default (printf "did:web:%s" .Values.connector.publicHost) .Values.catalog.participantId -}}
+{{- $participantDid := default (printf "did:web:%s:identity" .Values.connector.publicHost) .Values.catalog.participantId -}}
 apiVersion: v1
 kind: Namespace
 metadata:

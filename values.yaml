@@ -22,7 +22,7 @@ dataplane:
   internalBaseUrl: http://dil-connector-dataplane.dil-connector.svc.cluster.local:8284
 
 catalog:
-  participantId: ""
+  participantId: did:web:dil-connector.material.dil.collab-cloud.eu:identity
   serviceId: dataservice:main
   dataServiceType: dspace:connector
   publisher: ""

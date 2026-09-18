@@ -9,7 +9,7 @@ data:
   CONNECTOR_PUBLIC_BASE_URL: https://dil-connector.material.dil.collab-cloud.eu
   CONNECTOR_DSP_BASE_PATH: /api/dsp
   DATAPLANE_BASE_URL: http://dil-connector-dataplane.dil-connector.svc.cluster.local:8284
-  CATALOG_PARTICIPANT_ID: TCK_PARTICIPANT
+  CATALOG_PARTICIPANT_ID: did:web:dil-connector.material.dil.collab-cloud.eu:identity
   CATALOG_SERVICE_ID: dataservice:main
   CATALOG_DATA_SERVICE_TYPE: dspace:connector
   CATALOG_PUBLISHER: ""
