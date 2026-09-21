@@ -2,7 +2,7 @@ namespace: dil-connector-gui
 
 image:
   repository: ghcr.io/data-space-lab/dil-connector-gui
-  tag: policy-grid-20260921-1
+  tag: policy-editor-20260921-1
   pullPolicy: Always
 
 imagePullSecrets:
