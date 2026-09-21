@@ -20,6 +20,7 @@ data:
     Open Data Commons Open Database License 1.0 | https://opendatacommons.org/licenses/odbl/1-0/
   CATALOG_DEFAULT_LICENSE: https://creativecommons.org/licenses/by/4.0/
   CONNECTOR_AUTHORIZATION: '{"region":"any","audience":"any","clientId":"any"}'
+  LIBRECHAT_URL: ""
   DJANGO_ALLOWED_HOSTS: "*"
   DJANGO_CSRF_TRUSTED_ORIGINS: https://dil-connector-gui.material.dil.collab-cloud.eu
   DJANGO_DEBUG: "false"

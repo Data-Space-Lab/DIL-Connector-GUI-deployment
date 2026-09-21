@@ -2,7 +2,7 @@ namespace: dil-connector-gui
 
 image:
   repository: ghcr.io/data-space-lab/dil-connector-gui
-  tag: offer-download-s3-20260921-1
+  tag: librechat-launcher-20260921-1
   pullPolicy: Always
 
 imagePullSecrets:
@@ -20,6 +20,9 @@ connector:
 
 dataplane:
   internalBaseUrl: http://dil-connector-dataplane.dil-connector.svc.cluster.local:8284
+
+librechat:
+  url: ""
 
 catalog:
   participantId: did:web:dil-connector.material.dil.collab-cloud.eu:identity

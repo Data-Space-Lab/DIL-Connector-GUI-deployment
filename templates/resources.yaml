@@ -48,6 +48,7 @@ data:
 {{- end }}
   CATALOG_DEFAULT_LICENSE: {{ .Values.catalog.defaultLicense | quote }}
   CONNECTOR_AUTHORIZATION: {{ .Values.connector.authorization | quote }}
+  LIBRECHAT_URL: {{ default "" .Values.librechat.url | quote }}
   DJANGO_ALLOWED_HOSTS: {{ .Values.django.allowedHosts | quote }}
   DJANGO_CSRF_TRUSTED_ORIGINS: {{ default "" .Values.django.csrfTrustedOrigins | quote }}
   DJANGO_DEBUG: {{ .Values.django.debug | quote }}
