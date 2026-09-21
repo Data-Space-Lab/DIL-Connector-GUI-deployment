@@ -2,7 +2,7 @@ namespace: dil-connector-gui
 
 image:
   repository: ghcr.io/data-space-lab/dil-connector-gui
-  tag: policy-date-picker-20260921-1
+  tag: offer-download-s3-20260921-1
   pullPolicy: Always
 
 imagePullSecrets:
