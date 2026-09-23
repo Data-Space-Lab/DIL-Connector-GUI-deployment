@@ -2,7 +2,7 @@ namespace: dil-connector-gui
 
 image:
   repository: ghcr.io/data-space-lab/dil-connector-gui
-  tag: remote-catalog-fetch-20260923-1
+  tag: public-jwk-20260923-1
   pullPolicy: Always
 
 imagePullSecrets:
