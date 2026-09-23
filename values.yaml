@@ -2,7 +2,7 @@ namespace: dil-connector-gui
 
 image:
   repository: ghcr.io/data-space-lab/dil-connector-gui
-  tag: public-jwk-20260923-3
+  tag: multi-dataspace-20260923-1
   pullPolicy: Always
 
 imagePullSecrets:
