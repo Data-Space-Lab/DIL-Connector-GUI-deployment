@@ -2,7 +2,7 @@ namespace: dil-connector-gui
 
 image:
   repository: ghcr.io/data-space-lab/dil-connector-gui
-  tag: librechat-dialog-20260921-1
+  tag: remote-catalog-fetch-20260923-1
   pullPolicy: Always
 
 imagePullSecrets:
