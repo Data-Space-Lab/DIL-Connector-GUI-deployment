@@ -2,7 +2,7 @@ namespace: dil-connector-gui
 
 image:
   repository: ghcr.io/data-space-lab/dil-connector-gui
-  tag: ui-5753926
+  tag: contract-context-20260924-1
   pullPolicy: Always
 
 imagePullSecrets:
