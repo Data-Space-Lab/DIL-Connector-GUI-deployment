@@ -2,7 +2,7 @@ namespace: dil-connector-gui
 
 image:
   repository: ghcr.io/data-space-lab/dil-connector-gui
-  tag: issuer-offer-scope-20260924-2
+  tag: contract-transfer-20260924-1
   pullPolicy: Always
 
 imagePullSecrets:
