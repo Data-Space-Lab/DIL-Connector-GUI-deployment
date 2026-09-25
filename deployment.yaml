@@ -21,7 +21,7 @@ spec:
       serviceAccountName: dil-connector-gui
       containers:
         - name: dil-connector-gui
-          image: ghcr.io/data-space-lab/dil-connector-gui:logs-20260925-1
+          image: ghcr.io/data-space-lab/dil-connector-gui:grafana-dashboard-20260925-1
           imagePullPolicy: Always
           ports:
             - name: http
