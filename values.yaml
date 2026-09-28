@@ -2,7 +2,7 @@ namespace: dil-connector-gui
 
 image:
   repository: ghcr.io/data-space-lab/dil-connector-gui
-  tag: terminate-contract-dialog-20260925-1
+  tag: transfer-grafana-handoff-20260928-1
   pullPolicy: Always
 
 imagePullSecrets:
@@ -20,6 +20,16 @@ connector:
 
 dataplane:
   internalBaseUrl: http://dil-connector-dataplane.dil-connector.svc.cluster.local:8284
+
+grafana:
+  # URL that consumer Grafana uses for /grafana/consumer requests. Keep this
+  # separate from the GUI's internal dataplane URL when Grafana is elsewhere.
+  dataplaneUrl: http://dil-connector-dataplane.dil-connector.svc.cluster.local:8284
+  # Create this Secret in the GUI namespace with the same value as the
+  # consumer dataplane's GRAFANA_CLIENT_TOKEN. Leave empty to hide the token.
+  clientTokenSecretName: ""
+  clientTokenSecretKey: grafana-client-token
+  exposeClientToken: "false"
 
 librechat:
   url: ""
