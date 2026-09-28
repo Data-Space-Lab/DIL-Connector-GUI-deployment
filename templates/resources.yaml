@@ -39,6 +39,7 @@ data:
   DATAPLANE_BASE_URL: {{ .Values.dataplane.internalBaseUrl | quote }}
   GRAFANA_DATAPLANE_URL: {{ .Values.grafana.dataplaneUrl | quote }}
   GRAFANA_EXPOSE_CLIENT_TOKEN: {{ .Values.grafana.exposeClientToken | quote }}
+  GRAFANA_ALLOW_HTTP: {{ .Values.grafana.allowHttp | quote }}
   CATALOG_PARTICIPANT_ID: {{ $participantDid | quote }}
   CATALOG_SERVICE_ID: {{ .Values.catalog.serviceId | quote }}
   CATALOG_DATA_SERVICE_TYPE: {{ .Values.catalog.dataServiceType | quote }}

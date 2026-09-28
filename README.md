@@ -59,6 +59,7 @@ grafana:
   clientTokenSecretName: dil-grafana-connector-token
   clientTokenSecretKey: grafana-client-token
   exposeClientToken: "true"
+  allowHttp: "true" # only for a trusted in-cluster dataplane URL
 ```
 
 This deliberately exposes a bearer credential to authenticated GUI users, so
