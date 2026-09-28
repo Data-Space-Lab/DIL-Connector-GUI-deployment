@@ -2,7 +2,7 @@ namespace: dil-connector-gui
 
 image:
   repository: ghcr.io/data-space-lab/dil-connector-gui
-  tag: transfer-grafana-handoff-20260928-1
+  tag: grafana-import-http-20260928-1
   pullPolicy: Always
 
 imagePullSecrets:
@@ -30,6 +30,7 @@ grafana:
   clientTokenSecretName: dil-grafana-connector-token
   clientTokenSecretKey: grafana-client-token
   exposeClientToken: "true"
+  allowHttp: "true"
 
 librechat:
   url: ""
