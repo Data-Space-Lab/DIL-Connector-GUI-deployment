@@ -21,7 +21,7 @@ spec:
       serviceAccountName: dil-connector-gui
       containers:
         - name: dil-connector-gui
-          image: ghcr.io/data-space-lab/dil-connector-gui:terminate-contract-dialog-20260925-1
+          image: ghcr.io/data-space-lab/dil-connector-gui:transfer-grafana-handoff-20260928-1
           imagePullPolicy: Always
           ports:
             - name: http
@@ -31,6 +31,13 @@ spec:
                 name: dil-connector-gui-config
             - secretRef:
                 name: dil-connector-gui-secret
+          # Optional Secret-backed token handoff for authenticated Grafana
+          # transfer dialogs. Keep this disabled unless explicitly required.
+          # - name: GRAFANA_CLIENT_TOKEN
+          #   valueFrom:
+          #     secretKeyRef:
+          #       name: dil-grafana-connector-token
+          #       key: grafana-client-token
           resources:
             requests:
               cpu: 100m
