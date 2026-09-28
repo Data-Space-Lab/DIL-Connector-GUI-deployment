@@ -2,7 +2,7 @@ namespace: dil-connector-gui
 
 image:
   repository: ghcr.io/data-space-lab/dil-connector-gui
-  tag: grafana-import-http-20260928-1
+  tag: rtsp-session-path-20260928-1
   pullPolicy: Always
 
 imagePullSecrets:
