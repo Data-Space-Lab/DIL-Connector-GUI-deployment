@@ -42,6 +42,30 @@ The deployment expects a `ghcr-pull-secret` image pull secret in the
 `dil-connector-gui` namespace. ManagementAPI should create that secret when
 private image pull credentials are automated.
 
+## Grafana transfer handoff
+
+The transfer dialog can show the consumer Grafana dataplane URL and copy it
+for datasource setup. Set `grafana.dataplaneUrl` to the URL reachable by the
+consumer Grafana backend; it is normally the dataplane service URL, not the
+connector DSP URL.
+
+The token is never included in a portable dashboard JSON document. If the
+deployment needs the GUI to reveal/copy the consumer token, create a Secret in
+the `dil-connector-gui` namespace containing the same value as the consumer
+dataplane's `GRAFANA_CLIENT_TOKEN`, then set:
+
+```yaml
+grafana:
+  clientTokenSecretName: dil-grafana-connector-token
+  clientTokenSecretKey: grafana-client-token
+  exposeClientToken: "true"
+```
+
+This deliberately exposes a bearer credential to authenticated GUI users, so
+leave `exposeClientToken` false unless that operational trade-off is intended.
+The Grafana datasource importer can instead use the token already stored in
+Grafana's secure datasource configuration.
+
 ## ManagementAPI Catalog Entry
 
 Use `application-catalog-entry.json` as the deployable application payload in
