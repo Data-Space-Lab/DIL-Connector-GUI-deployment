@@ -31,13 +31,12 @@ spec:
                 name: dil-connector-gui-config
             - secretRef:
                 name: dil-connector-gui-secret
-          # Optional Secret-backed token handoff for authenticated Grafana
-          # transfer dialogs. Keep this disabled unless explicitly required.
-          # - name: GRAFANA_CLIENT_TOKEN
-          #   valueFrom:
-          #     secretKeyRef:
-          #       name: dil-grafana-connector-token
-          #       key: grafana-client-token
+            - name: GRAFANA_CLIENT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: dil-grafana-connector-token
+                  key: grafana-client-token
+                  optional: false
           resources:
             requests:
               cpu: 100m

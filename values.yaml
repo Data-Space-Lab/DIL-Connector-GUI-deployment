@@ -27,9 +27,9 @@ grafana:
   dataplaneUrl: http://dil-connector-dataplane.dil-connector.svc.cluster.local:8284
   # Create this Secret in the GUI namespace with the same value as the
   # consumer dataplane's GRAFANA_CLIENT_TOKEN. Leave empty to hide the token.
-  clientTokenSecretName: ""
+  clientTokenSecretName: dil-grafana-connector-token
   clientTokenSecretKey: grafana-client-token
-  exposeClientToken: "false"
+  exposeClientToken: "true"
 
 librechat:
   url: ""
