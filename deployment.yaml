@@ -31,6 +31,7 @@ spec:
                 name: dil-connector-gui-config
             - secretRef:
                 name: dil-connector-gui-secret
+          env:
             - name: GRAFANA_CLIENT_TOKEN
               valueFrom:
                 secretKeyRef:
