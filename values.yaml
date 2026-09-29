@@ -2,7 +2,7 @@ namespace: dil-connector-gui
 
 image:
   repository: ghcr.io/data-space-lab/dil-connector-gui
-  tag: rtsp-session-path-20260928-1
+  tag: catalog-grid-20260929-1
   pullPolicy: Always
 
 imagePullSecrets:
