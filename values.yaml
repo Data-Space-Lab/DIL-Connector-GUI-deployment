@@ -2,7 +2,7 @@ namespace: dil-connector-gui
 
 image:
   repository: ghcr.io/data-space-lab/dil-connector-gui
-  tag: catalog-grid-20260929-1
+  tag: transfer-open-20260929-1
   pullPolicy: Always
 
 imagePullSecrets:
