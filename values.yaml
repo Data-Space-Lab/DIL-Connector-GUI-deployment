@@ -2,7 +2,7 @@ namespace: dil-connector-gui
 
 image:
   repository: ghcr.io/data-space-lab/dil-connector-gui
-  tag: oidc-admin-rbac-20260930-2
+  tag: oidc-admin-rbac-20260930-3
   pullPolicy: Always
 
 imagePullSecrets:
