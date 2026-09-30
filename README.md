@@ -59,9 +59,8 @@ client redirect URI must be exactly:
 https://dil-connector-gui.{tenant_host}/auth/callback/
 ```
 
-Create or use Keycloak groups `connector-manager` and `connector-admin` for
-users allowed to change connector data. Users not in those groups are treated
-as viewers: they can browse data and policies, but cannot access settings,
+Create or use the Keycloak group `admin` for users allowed to change connector
+data. Users not in that group are treated as viewers: they can browse data and policies, but cannot access settings,
 contract management, logs, or any state-changing endpoint. Put the generated
 client secret in a separate Kubernetes Secret; do not commit it:
 

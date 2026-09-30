@@ -32,6 +32,6 @@ data:
   GUI_OIDC_CLIENT_ID: dil-connector-gui
   GUI_OIDC_SCOPES: "openid profile email groups"
   GUI_OIDC_REDIRECT_URI: https://dil-connector-gui.material.dil.collab-cloud.eu/auth/callback/
-  GUI_MANAGER_GROUPS: "connector-manager connector-admin admin"
-  GUI_ADMIN_GROUPS: "connector-admin admin"
+  GUI_MANAGER_GROUPS: "admin"
+  GUI_ADMIN_GROUPS: "admin"
   GUI_SESSION_COOKIE_SECURE: "true"

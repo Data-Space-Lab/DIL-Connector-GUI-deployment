@@ -67,8 +67,8 @@ auth:
     clientSecretSecretKey: client-secret
     scopes: openid profile email groups
     redirectUri: https://dil-connector-gui.material.dil.collab-cloud.eu/auth/callback/
-    managerGroups: connector-manager connector-admin admin
-    adminGroups: connector-admin admin
+    managerGroups: admin
+    adminGroups: admin
     sessionCookieSecure: "true"
 
 service:
