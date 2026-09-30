@@ -30,7 +30,7 @@ data:
   GUI_AUTH_MODE: "oidc"
   GUI_OIDC_DISCOVERY_URL: https://dil.collab-cloud.eu/auth/realms/material/.well-known/openid-configuration
   GUI_OIDC_CLIENT_ID: dil-connector-gui
-  GUI_OIDC_SCOPES: "openid profile email groups"
+  GUI_OIDC_SCOPES: "openid profile email"
   GUI_OIDC_REDIRECT_URI: https://dil-connector-gui.material.dil.collab-cloud.eu/auth/callback/
   GUI_MANAGER_GROUPS: "admin"
   GUI_ADMIN_GROUPS: "admin"
