@@ -1,0 +1,41 @@
+{
+  "clientId": "dil-connector-gui",
+  "name": "DIL Connector GUI",
+  "description": "OIDC login client for the DIL Connector GUI",
+  "protocol": "openid-connect",
+  "publicClient": false,
+  "standardFlowEnabled": true,
+  "directAccessGrantsEnabled": false,
+  "serviceAccountsEnabled": false,
+  "implicitFlowEnabled": false,
+  "redirectUris": [
+    "https://dil-connector-gui.{tenant_host}/auth/callback/"
+  ],
+  "webOrigins": [
+    "https://dil-connector-gui.{tenant_host}"
+  ],
+  "attributes": {
+    "pkce.code.challenge.method": "S256",
+    "post.logout.redirect.uris": "+"
+  },
+  "defaultClientScopes": [
+    "web-origins",
+    "profile",
+    "email",
+    "roles"
+  ],
+  "protocolMappers": [
+    {
+      "name": "groups",
+      "protocol": "openid-connect",
+      "protocolMapper": "oidc-group-membership-mapper",
+      "config": {
+        "full.path": "false",
+        "id.token.claim": "true",
+        "access.token.claim": "true",
+        "userinfo.token.claim": "true",
+        "claim.name": "groups"
+      }
+    }
+  ]
+}

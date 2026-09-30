@@ -55,6 +55,14 @@ data:
   DJANGO_ALLOWED_HOSTS: {{ .Values.django.allowedHosts | quote }}
   DJANGO_CSRF_TRUSTED_ORIGINS: {{ default "" .Values.django.csrfTrustedOrigins | quote }}
   DJANGO_DEBUG: {{ .Values.django.debug | quote }}
+  GUI_AUTH_MODE: {{ .Values.auth.mode | quote }}
+  GUI_OIDC_DISCOVERY_URL: {{ .Values.auth.oidc.discoveryUrl | quote }}
+  GUI_OIDC_CLIENT_ID: {{ .Values.auth.oidc.clientId | quote }}
+  GUI_OIDC_SCOPES: {{ .Values.auth.oidc.scopes | quote }}
+  GUI_OIDC_REDIRECT_URI: {{ .Values.auth.oidc.redirectUri | quote }}
+  GUI_MANAGER_GROUPS: {{ .Values.auth.oidc.managerGroups | quote }}
+  GUI_ADMIN_GROUPS: {{ .Values.auth.oidc.adminGroups | quote }}
+  GUI_SESSION_COOKIE_SECURE: {{ .Values.auth.oidc.sessionCookieSecure | quote }}
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -89,8 +97,14 @@ spec:
                 name: dil-connector-gui-config
             - secretRef:
                 name: dil-connector-gui-secret
-{{- if .Values.grafana.clientTokenSecretName }}
           env:
+            - name: GUI_OIDC_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.auth.oidc.clientSecretSecretName | quote }}
+                  key: {{ .Values.auth.oidc.clientSecretSecretKey | quote }}
+                  optional: false
+{{- if .Values.grafana.clientTokenSecretName }}
             - name: GRAFANA_CLIENT_TOKEN
               valueFrom:
                 secretKeyRef:
@@ -102,13 +116,13 @@ spec:
 {{ toYaml .Values.resources | indent 12 }}
           livenessProbe:
             httpGet:
-              path: /
+              path: /healthz/
               port: http
             initialDelaySeconds: 30
             periodSeconds: 20
           readinessProbe:
             httpGet:
-              path: /
+              path: /healthz/
               port: http
             initialDelaySeconds: 10
             periodSeconds: 10

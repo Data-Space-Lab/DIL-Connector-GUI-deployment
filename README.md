@@ -42,6 +42,50 @@ The deployment expects a `ghcr-pull-secret` image pull secret in the
 `dil-connector-gui` namespace. ManagementAPI should create that secret when
 private image pull credentials are automated.
 
+## OIDC login and RBAC
+
+Set `auth.mode` to `oidc` for the normal deployment. The GUI uses the
+authorization-code flow against the tenant Keycloak realm and stores only
+verified display claims in its signed Django session; it never exposes an
+OIDC access token to browser JavaScript. Set `auth.mode: envoy` only when an
+authenticated Envoy route injects `X-Auth-Request-User` and related identity
+headers. `disabled` is for local development only.
+
+Create the client from `keycloak/dil-connector-gui-client.json` in the tenant
+realm, replacing `{tenant_host}` and setting a confidential client secret. The
+client redirect URI must be exactly:
+
+```text
+https://dil-connector-gui.{tenant_host}/auth/callback/
+```
+
+Create or use Keycloak groups `connector-manager` and `connector-admin` for
+users allowed to change connector data. Users not in those groups are treated
+as viewers: they can browse data and policies, but cannot access settings,
+contract management, logs, or any state-changing endpoint. Put the generated
+client secret in a separate Kubernetes Secret; do not commit it:
+
+```bash
+kubectl -n dil-connector-gui create secret generic dil-connector-gui-oidc \
+  --from-literal=client-secret='<keycloak-client-secret>' \
+  --dry-run=client -o yaml | kubectl apply -f -
+```
+
+The Helm values and static deployment reference that Secret as
+`dil-connector-gui-oidc`. The static manifest intentionally does not contain a
+placeholder secret, so a missing secret fails closed instead of deploying an
+unauthenticated GUI.
+
+For a tenant-specific Helm deployment, override at least:
+
+```yaml
+auth:
+  mode: oidc
+  oidc:
+    discoveryUrl: https://dil.collab-cloud.eu/auth/realms/<tenant>/.well-known/openid-configuration
+    redirectUri: https://dil-connector-gui.<tenant-host>/auth/callback/
+```
+
 ## Grafana transfer handoff
 
 The transfer dialog can show the consumer Grafana dataplane URL and copy it

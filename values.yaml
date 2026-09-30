@@ -2,7 +2,7 @@ namespace: dil-connector-gui
 
 image:
   repository: ghcr.io/data-space-lab/dil-connector-gui
-  tag: incoming-transfer-action-20260929-1
+  tag: oidc-rbac-20260930-1
   pullPolicy: Always
 
 imagePullSecrets:
@@ -55,6 +55,21 @@ django:
   csrfTrustedOrigins: ""
   debug: "false"
   secretKey: change-me
+
+auth:
+  # disabled | oidc | envoy. Use envoy when an authenticated gateway injects
+  # X-Auth-Request-* identity headers.
+  mode: oidc
+  oidc:
+    discoveryUrl: https://dil.collab-cloud.eu/auth/realms/material/.well-known/openid-configuration
+    clientId: dil-connector-gui
+    clientSecretSecretName: dil-connector-gui-oidc
+    clientSecretSecretKey: client-secret
+    scopes: openid profile email groups
+    redirectUri: https://dil-connector-gui.material.dil.collab-cloud.eu/auth/callback/
+    managerGroups: connector-manager connector-admin admin
+    adminGroups: connector-admin admin
+    sessionCookieSecure: "true"
 
 service:
   port: 8000

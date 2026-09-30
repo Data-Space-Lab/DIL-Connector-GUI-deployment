@@ -21,7 +21,7 @@ spec:
       serviceAccountName: dil-connector-gui
       containers:
         - name: dil-connector-gui
-          image: ghcr.io/data-space-lab/dil-connector-gui:incoming-transfer-action-20260929-1
+          image: ghcr.io/data-space-lab/dil-connector-gui:oidc-rbac-20260930-1
           imagePullPolicy: Always
           ports:
             - name: http
@@ -32,6 +32,12 @@ spec:
             - secretRef:
                 name: dil-connector-gui-secret
           env:
+            - name: GUI_OIDC_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: dil-connector-gui-oidc
+                  key: client-secret
+                  optional: false
             - name: GRAFANA_CLIENT_TOKEN
               valueFrom:
                 secretKeyRef:
@@ -49,13 +55,13 @@ spec:
               ephemeral-storage: 1Gi
           livenessProbe:
             httpGet:
-              path: /
+              path: /healthz/
               port: http
             initialDelaySeconds: 30
             periodSeconds: 20
           readinessProbe:
             httpGet:
-              path: /
+              path: /healthz/
               port: http
             initialDelaySeconds: 10
             periodSeconds: 10
