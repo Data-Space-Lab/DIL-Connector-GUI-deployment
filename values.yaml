@@ -2,7 +2,7 @@ namespace: dil-connector-gui
 
 image:
   repository: ghcr.io/data-space-lab/dil-connector-gui
-  tag: oidc-admin-rbac-20260930-4
+  tag: oidc-admin-rbac-20260930-5
   pullPolicy: Always
 
 imagePullSecrets:
@@ -66,6 +66,7 @@ auth:
     clientSecretSecretName: dil-connector-gui-oidc
     clientSecretSecretKey: client-secret
     scopes: openid profile email
+    codeChallengeMethod: S256
     redirectUri: https://dil-connector-gui.material.dil.collab-cloud.eu/auth/callback/
     managerGroups: admin
     adminGroups: admin

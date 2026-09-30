@@ -59,6 +59,7 @@ data:
   GUI_OIDC_DISCOVERY_URL: {{ .Values.auth.oidc.discoveryUrl | quote }}
   GUI_OIDC_CLIENT_ID: {{ .Values.auth.oidc.clientId | quote }}
   GUI_OIDC_SCOPES: {{ .Values.auth.oidc.scopes | quote }}
+  GUI_OIDC_CODE_CHALLENGE_METHOD: {{ .Values.auth.oidc.codeChallengeMethod | quote }}
   GUI_OIDC_REDIRECT_URI: {{ .Values.auth.oidc.redirectUri | quote }}
   GUI_MANAGER_GROUPS: {{ .Values.auth.oidc.managerGroups | quote }}
   GUI_ADMIN_GROUPS: {{ .Values.auth.oidc.adminGroups | quote }}
