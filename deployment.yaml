@@ -21,7 +21,7 @@ spec:
       serviceAccountName: dil-connector-gui
       containers:
         - name: dil-connector-gui
-          image: ghcr.io/data-space-lab/dil-connector-gui:auto-contract-offers-20261001-1
+          image: ghcr.io/data-space-lab/dil-connector-gui:remote-catalog-auth-20261001-1
           imagePullPolicy: Always
           ports:
             - name: http
