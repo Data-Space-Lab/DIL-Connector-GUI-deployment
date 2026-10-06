@@ -2,7 +2,7 @@ namespace: dil-connector-gui
 
 image:
   repository: ghcr.io/data-space-lab/dil-connector-gui
-  tag: mqtt-20261006-1
+  tag: mqtt-settings-20261006-1
   pullPolicy: Always
 
 imagePullSecrets:
