@@ -2,7 +2,7 @@ namespace: dil-connector-gui
 
 image:
   repository: ghcr.io/data-space-lab/dil-connector-gui
-  tag: credential-masks-20261015-1
+  tag: dataplane-autosave-20261015-1
   pullPolicy: Always
 
 imagePullSecrets:
