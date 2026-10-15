@@ -2,7 +2,7 @@ namespace: dil-connector-gui
 
 image:
   repository: ghcr.io/data-space-lab/dil-connector-gui
-  tag: dataset-editor-20261015-1
+  tag: s3-picker-20261015-1
   pullPolicy: Always
 
 imagePullSecrets:
