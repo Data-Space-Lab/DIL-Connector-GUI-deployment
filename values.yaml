@@ -2,7 +2,7 @@ namespace: dil-connector-gui
 
 image:
   repository: ghcr.io/data-space-lab/dil-connector-gui
-  tag: contract-license-20261020-1
+  tag: discovery-parallel-20261020-1
   pullPolicy: Always
 
 imagePullSecrets:
