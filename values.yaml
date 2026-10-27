@@ -2,7 +2,7 @@ namespace: dil-connector-gui
 
 image:
   repository: ghcr.io/data-space-lab/dil-connector-gui
-  tag: public-catalogue-publish-flag-20261027-1
+  tag: contract-status-circles-20261027-1
   pullPolicy: Always
 
 imagePullSecrets:
