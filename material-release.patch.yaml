@@ -1,0 +1,6 @@
+# Apply as an Argo CD Application merge patch inside the material vcluster.
+spec:
+  source:
+    kustomize:
+      images:
+        - ghcr.io/data-space-lab/dil-connector-gui-osm-fix=ghcr.io/data-space-lab/dil-connector-gui:verify-debug-20261103-1
