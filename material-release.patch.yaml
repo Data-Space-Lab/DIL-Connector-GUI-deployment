@@ -3,4 +3,4 @@ spec:
   source:
     kustomize:
       images:
-        - ghcr.io/data-space-lab/dil-connector-gui-osm-fix=ghcr.io/data-space-lab/dil-connector-gui:verify-debug-20261103-1
+        - ghcr.io/data-space-lab/dil-connector-gui-osm-fix=ghcr.io/data-space-lab/dil-connector-gui:http-transfer-button-20261103-1
