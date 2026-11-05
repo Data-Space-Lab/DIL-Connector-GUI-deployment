@@ -2,7 +2,7 @@ namespace: dil-connector-gui
 
 image:
   repository: ghcr.io/data-space-lab/dil-connector-gui
-  tag: license-markdown-20261028-1
+  tag: http-transfer-button-20261103-1
   pullPolicy: Always
 
 imagePullSecrets:
