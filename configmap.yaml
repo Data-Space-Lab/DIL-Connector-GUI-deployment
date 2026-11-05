@@ -6,13 +6,13 @@ metadata:
 data:
   CONNECTOR_BASE_URL: http://dil-connector.dil-connector.svc.cluster.local:8282
   CONNECTOR_MGMT_BASE_URL: http://dil-connector-management.dil-connector.svc.cluster.local:8283
-  CONNECTOR_PUBLIC_BASE_URL: https://dil-connector.material.dil.collab-cloud.eu
+  CONNECTOR_PUBLIC_BASE_URL: https://dil-connector.example.org
   CONNECTOR_DSP_BASE_PATH: /api/dsp
   DATAPLANE_BASE_URL: http://dil-connector-dataplane.dil-connector.svc.cluster.local:8284
   GRAFANA_DATAPLANE_URL: http://dil-connector-dataplane.dil-connector.svc.cluster.local:8284
   GRAFANA_EXPOSE_CLIENT_TOKEN: "true"
   GRAFANA_ALLOW_HTTP: "true"
-  CATALOG_PARTICIPANT_ID: did:web:dil-connector.material.dil.collab-cloud.eu:identity
+  CATALOG_PARTICIPANT_ID: did:web:dil-connector.example.org:identity
   CATALOG_SERVICE_ID: dataservice:main
   CATALOG_DATA_SERVICE_TYPE: dspace:connector
   CATALOG_PUBLISHER: ""
@@ -25,14 +25,14 @@ data:
   CONNECTOR_AUTHORIZATION: '{"region":"any","audience":"any","clientId":"any"}'
   LIBRECHAT_URL: ""
   DJANGO_ALLOWED_HOSTS: "*"
-  DJANGO_CSRF_TRUSTED_ORIGINS: https://dil-connector-gui.material.dil.collab-cloud.eu
+  DJANGO_CSRF_TRUSTED_ORIGINS: https://dil-connector-gui.example.org
   DJANGO_DEBUG: "false"
   GUI_AUTH_MODE: "oidc"
-  GUI_OIDC_DISCOVERY_URL: https://dil.collab-cloud.eu/auth/realms/material/.well-known/openid-configuration
+  GUI_OIDC_DISCOVERY_URL: https://dil.collab-cloud.eu/auth/realms/example/.well-known/openid-configuration
   GUI_OIDC_CLIENT_ID: dil-connector-gui
   GUI_OIDC_SCOPES: "openid profile email"
   GUI_OIDC_CODE_CHALLENGE_METHOD: "S256"
-  GUI_OIDC_REDIRECT_URI: https://dil-connector-gui.material.dil.collab-cloud.eu/auth/callback/
+  GUI_OIDC_REDIRECT_URI: https://dil-connector-gui.example.org/auth/callback/
   GUI_MANAGER_GROUPS: "admin"
   GUI_ADMIN_GROUPS: "admin"
   GUI_SESSION_COOKIE_SECURE: "true"

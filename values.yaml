@@ -36,7 +36,7 @@ librechat:
   url: ""
 
 catalog:
-  participantId: did:web:dil-connector.material.dil.collab-cloud.eu:identity
+  participantId: did:web:dil-connector.example.org:identity
   serviceId: dataservice:main
   dataServiceType: dspace:connector
   publisher: ""
@@ -61,13 +61,13 @@ auth:
   # X-Auth-Request-* identity headers.
   mode: oidc
   oidc:
-    discoveryUrl: https://dil.collab-cloud.eu/auth/realms/material/.well-known/openid-configuration
+    discoveryUrl: https://dil.collab-cloud.eu/auth/realms/example/.well-known/openid-configuration
     clientId: dil-connector-gui
     clientSecretSecretName: dil-connector-gui-oidc
     clientSecretSecretKey: client-secret
     scopes: openid profile email
     codeChallengeMethod: S256
-    redirectUri: https://dil-connector-gui.material.dil.collab-cloud.eu/auth/callback/
+    redirectUri: https://dil-connector-gui.example.org/auth/callback/
     managerGroups: admin
     adminGroups: admin
     sessionCookieSecure: "true"
