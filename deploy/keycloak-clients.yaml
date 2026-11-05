@@ -3,9 +3,9 @@ clients:
     secret_name: dil-connector-gui-oidc
     secret_key: client-secret
     redirect_uris:
-      - https://dil-connector-gui.{tenant_host}/auth/callback/
+      - https://{tenant_host}/auth/callback/
     web_origins:
-      - https://dil-connector-gui.{tenant_host}
+      - https://{tenant_host}
     standard_flow_enabled: true
     direct_access_grants_enabled: false
     service_accounts_enabled: false

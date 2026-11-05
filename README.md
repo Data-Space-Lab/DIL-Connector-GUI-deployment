@@ -35,7 +35,7 @@ CATALOG_PARTICIPANT_ID=did:web:dil-connector.{tenant_host}
 CATALOG_SERVICE_ID=dataservice:main
 CATALOG_DATA_SERVICE_TYPE=dspace:connector
 CATALOG_PUBLISHER={tenant}
-CATALOG_HOMEPAGE=https://dil-connector-gui.{tenant_host}
+CATALOG_HOMEPAGE=https://{tenant_host}
 ```
 
 The deployment expects a `ghcr-pull-secret` image pull secret in the
@@ -56,7 +56,7 @@ realm, replacing `{tenant_host}` and setting a confidential client secret. The
 client redirect URI must be exactly:
 
 ```text
-https://dil-connector-gui.{tenant_host}/auth/callback/
+https://{tenant_host}/auth/callback/
 ```
 
 Create or use the Keycloak group `admin` for users allowed to change connector
@@ -82,7 +82,7 @@ auth:
   mode: oidc
   oidc:
     discoveryUrl: https://dil.collab-cloud.eu/auth/realms/<tenant>/.well-known/openid-configuration
-    redirectUri: https://dil-connector-gui.<tenant-host>/auth/callback/
+    redirectUri: https://<tenant-host>/auth/callback/
 ```
 
 ## Grafana transfer handoff
