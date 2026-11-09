@@ -82,6 +82,8 @@ spec:
       app: dil-connector-gui
   template:
     metadata:
+      annotations:
+        checksum/config: {{ toJson .Values | sha256sum | quote }}
       labels:
         app: dil-connector-gui
     spec:

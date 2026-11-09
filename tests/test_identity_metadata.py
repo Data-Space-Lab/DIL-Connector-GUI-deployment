@@ -10,6 +10,21 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class IdentityMetadataTests(unittest.TestCase):
+    def test_identity_configuration_changes_restart_gui_pods(self):
+        checksums = []
+        for did in ("did:web:connector.example.org", "did:web:connector.example.org:identity"):
+            rendered = subprocess.run(
+                ["helm", "template", "gui", str(ROOT), "--set", f"catalog.participantId={did}"],
+                capture_output=True, text=True, check=True,
+            )
+            deployment = next(document for document in yaml.safe_load_all(rendered.stdout)
+                if document and document.get("kind") == "Deployment"
+                and document["metadata"]["name"] == "dil-connector-gui")
+            checksum = deployment["spec"]["template"]["metadata"]["annotations"]["checksum/config"]
+            self.assertRegex(checksum, r"^[0-9a-f]{64}$")
+            checksums.append(checksum)
+        self.assertNotEqual(*checksums)
+
     def test_catalog_entry_renders_the_connectors_path_based_did(self):
         entry = json.loads((ROOT / "application-catalog-entry.json").read_text())
         for tenant in ("research", "lab-two"):

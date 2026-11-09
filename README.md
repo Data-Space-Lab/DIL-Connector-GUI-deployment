@@ -47,6 +47,8 @@ does not update the saved application catalog or existing tenant Applications.
 
 Validate the deployment metadata with `python3 -m unittest discover -s tests`.
 The checks require Helm and PyYAML.
+The Helm pod template includes a configuration checksum so configuration changes
+automatically roll the GUI pods and refresh their environment variables.
 
 The deployment expects a `ghcr-pull-secret` image pull secret in the
 `dil-connector-gui` namespace. ManagementAPI should create that secret when
