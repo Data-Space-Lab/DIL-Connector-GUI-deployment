@@ -31,12 +31,22 @@ Catalog identity/service metadata is deployment-specific. ManagementAPI should
 render the participant ID for the tenant and pass it through Helm values:
 
 ```text
-CATALOG_PARTICIPANT_ID=did:web:dil-connector.{tenant_host}
+CATALOG_PARTICIPANT_ID=did:web:dil-connector.{tenant_host}:identity
 CATALOG_SERVICE_ID=dataservice:main
 CATALOG_DATA_SERVICE_TYPE=dspace:connector
 CATALOG_PUBLISHER={tenant}
 CATALOG_HOMEPAGE=https://{tenant_host}
 ```
+
+The GUI participant ID must match the connector's `catalog.participantId` and
+`dcp.holderDid`, including the `:identity` path. This identity resolves at
+`https://dil-connector.{tenant_host}/identity/did.json`, not `/.well-known/did.json`.
+After updating this catalog entry, update ManagementAPI's saved `helm_values`
+through `PATCH /applications/dil-connector-gui`. Changing the repository alone
+does not update the saved application catalog or existing tenant Applications.
+
+Validate the deployment metadata with `python3 -m unittest discover -s tests`.
+The checks require Helm and PyYAML.
 
 The deployment expects a `ghcr-pull-secret` image pull secret in the
 `dil-connector-gui` namespace. ManagementAPI should create that secret when
