@@ -21,7 +21,7 @@ spec:
       serviceAccountName: dil-connector-gui
       containers:
         - name: dil-connector-gui
-          image: ghcr.io/data-space-lab/dil-connector-gui:keycloak-users-20261106-1
+          image: ghcr.io/data-space-lab/dil-connector-gui:company-title-20261109-1
           imagePullPolicy: Always
           ports:
             - name: http
