@@ -2,7 +2,7 @@ namespace: dil-connector-gui
 
 image:
   repository: ghcr.io/data-space-lab/dil-connector-gui
-  tag: company-title-20261109-1
+  tag: company-favicon-20261109-1
   pullPolicy: Always
 
 imagePullSecrets:
