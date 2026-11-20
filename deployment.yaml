@@ -21,7 +21,7 @@ spec:
       serviceAccountName: dil-connector-gui
       containers:
         - name: dil-connector-gui
-          image: ghcr.io/data-space-lab/dil-connector-gui:release-20261120-2
+          image: ghcr.io/data-space-lab/dil-connector-gui:release-20261120-4
           imagePullPolicy: Always
           ports:
             - name: http
